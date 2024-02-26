@@ -1,10 +1,10 @@
 import os
 import numpy as np
 import pandas as pd
-from .pod_gen.Tree.Tree import Tree
-from .pod_gen.Tree.TreeBuild.treeBuild import treeBuild
-from .pod_gen.alreadyInitialized import alreadyInitialized
-from .pod_gen.generateCombinations import generateCombinations
+from .Tree import Tree
+from .TreeBuild import treeBuild
+from .alreadyInitialized import alreadyInitialized
+from .generateCombinations import generateCombinations
 
 
 class DataGenerator:
@@ -17,12 +17,14 @@ class DataGenerator:
     __variables: list[str] = None
     __columns: list[str] = None
 
+
     def __init__(self, powers: list[int], noise_amount: int, boundaries: tuple[int, int], points_per_variable) -> None:
         self.powers = powers
         self.noise_amount = noise_amount
         self.boundaries = boundaries
         self.points_per_variable = points_per_variable
         self.__treeSetter()
+
 
     def generateData(self) -> None:
         data = self.__generateData()
@@ -35,6 +37,7 @@ class DataGenerator:
                 pd.DataFrame(noised_data, columns=self.__columns).to_csv(f'dataset{i}.csv', index=False)
                 return None
             i += 1
+
 
     def __generateData(self) -> np.ndarray:
         self.__variables = [f'x{i}' for i in range(len(self.__powers))]
@@ -67,6 +70,7 @@ class DataGenerator:
     def __treeSetter(self) -> None:
         self.__tree = treeBuild(self.__powers)
 
+
     @property
     def powers(self):
         return self.__powers
@@ -84,6 +88,7 @@ class DataGenerator:
 
         self.__powers = powers
 
+
     @property
     def noise_amount(self):
         return self.__noise_amount
@@ -96,6 +101,7 @@ class DataGenerator:
             raise Exception('Wrong "noise_amount" value, must be a not negative integer.')
 
         self.__noise_amount = noise_amount
+
 
     @property
     def boundaries(self):
@@ -117,6 +123,7 @@ class DataGenerator:
 
         self.__boundaries = boundaries
 
+
     @property
     def points_per_variable(self):
         return self.__points_per_variable
@@ -129,6 +136,7 @@ class DataGenerator:
             raise Exception('Wrong "boundaries" value, must be a integer higher then 2.')
 
         self.__points_per_variable = points_per_variable
+
 
     @property
     def tree(self):

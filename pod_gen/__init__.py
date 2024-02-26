@@ -1,1 +1,1 @@
-from .pod_gen.DataGenerator import DataGenerator
+from .DataGenerator import DataGenerator
