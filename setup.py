@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='pod_gen',
+    name='pol_data_gen',
     version='0.0.1',
     license='MIT',
 
@@ -12,7 +12,7 @@ setup(
     author_email='e.khodysko@gmail.com',
     url='https://github.com/yehorkhod/polynomial-data-generator',
 
-    packages=['pod_gen'],
+    packages=['pol_data_gen'],
     install_requires=['numpy', 'pandas'],
 
     keywords=[
@@ -28,7 +28,7 @@ setup(
     classifiers=[
         'Intended Audience :: Science/Research',
         'Programming Language :: Python :: 3',
-        'License :: OSI Approved :: MIT',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent'
     ]
 )

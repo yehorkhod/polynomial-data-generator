@@ -7,7 +7,7 @@ A new way to generate polynomial distributed data.
 
 
 ## Installation🚀
-`pip install pod_gen`
+`pip install pol_data_gen`
 
 
 ## Who, When, Why?
